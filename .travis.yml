@@ -19,7 +19,8 @@ services:
   - xvfb
 
 script:
+  # patch install.sh
   - sed -i 's/libusb-1.0.0-dev/libusb-1.0-0-dev/g' install.sh
-  - sed -i 's/.\/dash/.\/dash > dash.log \&/g' install.sh
+  - sed -i 's/^\s*\.\/dash/\.\/dash > dash.log \&/g' install.sh
   - ./install.sh
   - grep 'Init complete!' dash.log
