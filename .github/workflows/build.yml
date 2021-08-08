@@ -42,7 +42,7 @@ jobs:
         if: startsWith(matrix.config.name, 'Ubuntu Latest GCC')
         run: |
           sudo apt-get update
-          sudo apt-get install libxkbcommon-x11-0 libgl1-mesa-dev sudo apt install --no-install-recommends xserver-xorg-video-all xserver-xorg-input-all xserver-xorg-core xinit x11-xserver-utils
+          sudo apt-get install --no-install-recommends libxkbcommon-x11-0 libgl1-mesa-dev xserver-xorg-video-all xserver-xorg-input-all xserver-xorg-core xinit x11-xserver-utils
           cmake --version
           gcc --version
           
