@@ -25,5 +25,5 @@ script:
   # run build
   - ./install.sh
   # run app and check logs
-  - ./bin/dash > dash.log
-  - grep 'Init complete!' dash.log
+  # - ./bin/dash > dash.log
+  # - grep 'Init complete!' dash.log
