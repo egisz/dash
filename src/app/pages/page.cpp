@@ -42,13 +42,17 @@ void Page::enable(bool enable)
 
 QPushButton *Page::settings_button()
 {
+    DASH_LOG(info)<<"[Page] settings_button contructor"; 
     auto settings_button = new QPushButton();
     settings_button->setFlat(true);
+    settings_button->setVisible(false);
     this->arbiter.forge().iconize("settings", settings_button, 24);
 
     auto dialog = this->dialog();
     QObject::connect(settings_button, &QPushButton::clicked, [dialog]{ dialog->open(); });
-
+    QObject::connect(&this->arbiter, &Arbiter::fullscreen_mode_changed, [settings_button](bool fullscreen){
+        settings_button->setVisible(!fullscreen);
+    });
     return settings_button;
 }
 

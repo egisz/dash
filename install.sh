@@ -20,12 +20,13 @@ display_help() {
 #location of OS details for linux
 OS_RELEASE_FILE="/etc/os-release"
 CPU_CORE_COUNT=`grep -c ^processor /proc/cpuinfo`
-RAM_SIZE=`free -g | grep "Mem:" | awk '{print $2}'`
+RAM_SIZE=$((`free -g | grep "Mem:" | awk '{print $2}'`))
+RAM_HALF_SIZE=`expr $RAM_SIZE / 2`
 
-if [[ $(($RAM_SIZE + 0)) -lt 4 ]]; then
-  CPU_CORE_COUNT=2
+if [[ $RAM_HALF_SIZE -lt $(($CPU_CORE_COUNT + 0)) ]]; then
+  CPU_CORE_COUNT=`expr $RAM_HALF_SIZE`
 fi
-if [[ $(($RAM_SIZE + 0)) -lt 2 ]]; then
+if [[ $(($CPU_CORE_COUNT + 0)) -lt 1 ]]; then
   CPU_CORE_COUNT=1
 fi
 echo "RAM size is ${RAM_SIZE} GB, Utilizing threads: ${CPU_CORE_COUNT}"
