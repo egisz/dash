@@ -370,6 +370,7 @@ QWidget *LayoutSettingsTab::fullscreen_delay_row_widget()
     QHBoxLayout *layout = new QHBoxLayout(widget);
 
     QLabel *label = new QLabel("Fullscreen animation duration", widget);
+    label->setToolTip("Set minimum value to disable animation");
     layout->addWidget(label, 1);
 
     layout->addWidget(this->fullscreen_delay_widget(), 1);

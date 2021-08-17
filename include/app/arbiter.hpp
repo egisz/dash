@@ -21,7 +21,7 @@ class Arbiter : public QObject {
     void set_mode(Session::Theme::Mode mode);
     void toggle_mode();
     void toggle_fullscreen_mode();
-    void set_fullscreen_acknowledged(bool status);
+    void set_fullscreen_acknowledged(bool persistant);
     void set_color(const QColor &color);
     void set_scale(double scale);
     void set_control_bar(bool enabled);
@@ -42,7 +42,6 @@ class Arbiter : public QObject {
     void set_cursor(bool enabled);
     void set_action(Action *action, QString key);
     void send_openauto_button_press(aasdk::proto::enums::ButtonCode::Enum buttonCode, openauto::projection::WheelDirection wheelDirection = openauto::projection::WheelDirection::NONE);
-    void send_vehicle_data(QString gauge_id, int value);
 
     QMainWindow *window() { return this->window_; }
     QSettings &settings() { return this->session_.settings_; }
@@ -72,5 +71,4 @@ class Arbiter : public QObject {
     void action_changed(Action *action, QString key);
     void openauto_button_press(aasdk::proto::enums::ButtonCode::Enum buttonCode, openauto::projection::WheelDirection wheelDirection);
     void fullscreen_mode_changed(bool fullscreen);
-    void vehicle_update_data(QString gauge_id, int value);
 };
