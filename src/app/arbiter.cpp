@@ -220,3 +220,7 @@ void Arbiter::send_openauto_button_press(aasdk::proto::enums::ButtonCode::Enum b
     emit openauto_button_press(buttonCode, wheelDirection);
 }
 
+void Arbiter::send_vehicle_data(QString gauge_id, int value)
+{
+    emit vehicle_update_data(gauge_id, value);
+}

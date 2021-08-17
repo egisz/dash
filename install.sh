@@ -406,7 +406,7 @@ else
   fi
 
   echo Running Dash make
-  make -j$CPU_CORE_COUNT
+  make -j4
   if [[ $? -eq 0 ]]; then
       echo -e Dash make ok, executable can be found ../bin/dash
       echo
