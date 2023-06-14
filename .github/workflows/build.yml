@@ -53,7 +53,7 @@ jobs:
       - name: Fake Debian BullEye
         shell: bash
         run: |
-          echo "11" > /etc/debian_version
+          sudo echo "11" > /etc/debian_version
           sed -i 's/^\s*\.\/dash/\# \.\/dash/g' install.sh
 
       - name: Build
