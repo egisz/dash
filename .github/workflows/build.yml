@@ -9,7 +9,8 @@ on:
 
 env:
   CMAKE_BUILD_PARALLEL_LEVEL: 4
-  OPENSSL_ROOT_DIR: /usr/lib  #force use old openssl version as some methods are depricated in aasdk
+  OPENSSL_INCLUDE_DIR: /usr/lib 
+  # OPENSSL_ROOT_DIR: /usr/lib  #force use old openssl version as some methods are depricated in aasdk
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,8 +41,8 @@ jobs:
           echo github.event.action: ${{ github.event.action }}
           echo github.event_name: ${{ github.event_name }}
           echo Parallel build cores: $CMAKE_BUILD_PARALLEL_LEVEL
-          echo OpenSSL dir: $OPENSSL_ROOT_DIR
-          
+          echo OpenSSL dir: $OPENSSL_INCLUDE_DIR
+
       - name: Install dependencies on ubuntu
         if: startsWith(matrix.config.name, 'Ubuntu Latest GCC')
         run: |
