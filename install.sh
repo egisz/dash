@@ -24,8 +24,9 @@ display_help() {
 
 #determine if script is being run on bullseye or above
 BULLSEYE=false
-read -d . DEBIAN_VERSION < /etc/debian_version
-if [[ $DEBIAN_VERSION == ?(-)+([0-9]) && $DEBIAN_VERSION > 10 ]]; then
+OS_DISTR=`lsb_release -is`
+OS_VERSION=`lsb_release -rs`
+if [[ $OS_DISTR != 'Debian' || $OS_VERSION > 10 ]]; then
   echo 'Detected Debian version of Bullseye or above'
   BULLSEYE=true
 fi 
