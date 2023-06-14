@@ -295,7 +295,7 @@ else
   cd build
 
   #beginning cmake
-  cmake -DCMAKE_BUILD_TYPE=Release ../
+  OPENSSL_ROOT_DIR=/usr/lib cmake -DCMAKE_BUILD_TYPE=Release ../
   if [[ $? -eq 0 ]]; then
       echo -e Aasdk CMake completed successfully'\n'
   else
