@@ -50,6 +50,12 @@ jobs:
           sed -i 's/libusb-1.0.0-dev/libusb-1.0-0-dev/g' install.sh
           sed -i 's/^\s*\.\/dash/\# \.\/dash/g' install.sh
 
+      - name: Fake Debian BullEye
+        shell: bash
+        run: |
+          echo "11" > /etc/debian_version
+          sed -i 's/^\s*\.\/dash/\# \.\/dash/g' install.sh
+
       - name: Build
         shell: bash
         run: ./install.sh
