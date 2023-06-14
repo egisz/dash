@@ -54,7 +54,6 @@ jobs:
         shell: bash
         run: |
           sudo echo "11" > /etc/debian_version
-          sed -i 's/^\s*\.\/dash/\# \.\/dash/g' install.sh
 
       - name: Build
         shell: bash
