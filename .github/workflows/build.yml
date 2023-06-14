@@ -39,7 +39,9 @@ jobs:
         run: |
           echo github.event.action: ${{ github.event.action }}
           echo github.event_name: ${{ github.event_name }}
-
+          echo Parallel build cores: $CMAKE_BUILD_PARALLEL_LEVEL
+          echo OpenSSL dir: $OPENSSL_ROOT_DIR
+          
       - name: Install dependencies on ubuntu
         if: startsWith(matrix.config.name, 'Ubuntu Latest GCC')
         run: |
