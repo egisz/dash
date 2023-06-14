@@ -7,6 +7,9 @@ on:
   pull_request:
   release:
 
+env:
+  CMAKE_BUILD_PARALLEL_LEVEL: 4
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
