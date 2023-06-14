@@ -9,6 +9,7 @@ on:
 
 env:
   CMAKE_BUILD_PARALLEL_LEVEL: 4
+  OPENSSL_ROOT_DIR: /usr/lib  #force use old openssl version as some methods are depricated in aasdk
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
