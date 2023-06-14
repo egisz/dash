@@ -24,7 +24,7 @@ jobs:
       matrix:
         config: 
         - {
-            name: "Ubuntu Latest GCC (Release)",
+            name: "Ubuntu 20.04 GCC (Release)",
             os: ubuntu-20.04,
             build_type: "Release",
             cc: "gcc",
