@@ -25,10 +25,10 @@ display_help() {
 #determine if script is being run on bullseye or above
 BULLSEYE=false
 read -d . DEBIAN_VERSION < /etc/debian_version
-if (( $DEBIAN_VERSION > 10 )); then
-  echo Detected Debian version of Bullseye or above
-  BULLSEYE=true
-fi
+if [[ $DEBIAN_VERSION == ?(-)+([0-9]) && $DEBIAN_VERSION > 10 ]]; then \
+  echo 'Detected Debian version of Bullseye or above' \
+  BULLSEYE=true \
+fi 
 
 #check if /etc/rpi-issue exists, if not set the install Args to be false
 if [ -f /etc/rpi-issue ]

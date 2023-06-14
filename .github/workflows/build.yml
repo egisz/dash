@@ -6,8 +6,6 @@ on:
   push:
   pull_request:
   release:
-    # tags:
-    # - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,20 +29,20 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Print env
         run: |
           echo github.event.action: ${{ github.event.action }}
           echo github.event_name: ${{ github.event_name }}
 
-      - name: Install dependencies on ubuntu
-        if: startsWith(matrix.config.name, 'Ubuntu Latest GCC')
-        run: |
-          sudo apt-get update
-          # sudo apt-get install --no-install-recommends libxkbcommon-x11-0 libgl1-mesa-dev xserver-xorg-video-all xserver-xorg-input-all xserver-xorg-core xinit x11-xserver-utils
-          cmake --version
-          gcc --version
+      # - name: Install dependencies on ubuntu
+      #   if: startsWith(matrix.config.name, 'Ubuntu Latest GCC')
+      #   run: |
+      #     sudo apt-get update
+      #     # sudo apt-get install --no-install-recommends libxkbcommon-x11-0 libgl1-mesa-dev xserver-xorg-video-all xserver-xorg-input-all xserver-xorg-core xinit x11-xserver-utils
+      #     cmake --version
+      #     gcc --version
           
       - name: Patch install.sh
         shell: bash
