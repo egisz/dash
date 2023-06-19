@@ -8,7 +8,7 @@ on:
   release:
 
 env:
-  CMAKE_BUILD_PARALLEL_LEVEL: 4
+  CMAKE_BUILD_PARALLEL_LEVEL: 2
   OPENSSL_INCLUDE_DIR: /usr/lib 
   # OPENSSL_ROOT_DIR: /usr/lib  #force use old openssl version as some methods are depricated in aasdk
 
@@ -41,10 +41,9 @@ jobs:
           echo github.event.action: ${{ github.event.action }}
           echo github.event_name: ${{ github.event_name }}
           echo Parallel build cores: $CMAKE_BUILD_PARALLEL_LEVEL
-          echo OpenSSL dir: $OPENSSL_INCLUDE_DIR
 
       - name: Install dependencies on ubuntu
-        if: startsWith(matrix.config.name, 'Ubuntu Latest GCC')
+        if: startsWith(matrix.config.name, 'Ubuntu')
         run: |
           sudo apt-get update
           sudo apt-get install --no-install-recommends libssl-dev
