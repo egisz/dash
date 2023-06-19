@@ -47,6 +47,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --no-install-recommends libssl-dev
+          sudo apt-get install gstreamer1.0-tools gstreamer1.0-alsa gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav
           # sudo apt-get install --no-install-recommends libxkbcommon-x11-0 libgl1-mesa-dev xserver-xorg-video-all xserver-xorg-input-all xserver-xorg-core xinit x11-xserver-utils
           cmake --version
           gcc --version
