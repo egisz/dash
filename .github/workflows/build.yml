@@ -51,6 +51,7 @@ jobs:
         run: |
           sed -i 's/libusb-1.0.0-dev/libusb-1.0-0-dev/g' install.sh
           sed -i 's/^\s*\.\/dash/\# \.\/dash/g' install.sh
+          sed -i 's/qt5-default/qtbase5-dev/g' install.sh
 
       - name: Build
         shell: bash
